@@ -27,7 +27,7 @@ public class StudentService{
     
     @GET
     @Path("{id}")
-    public Student getOne(@PathParam("id") int id){
+    public Student getOne(@PathParam("id") Long id){
         return service.getStudent(id);
     }
     
@@ -46,7 +46,7 @@ public class StudentService{
     @PUT
     @Path("{id}")
     @Transactional
-    public Response updateStudent(@PathParam("id") int id, Student e){
+    public Response updateStudent(@PathParam("id") Long id, Student e){
       Student st = service.updateStudent(id, e);
       return Response.ok(st).status(204).build();
     }
@@ -54,7 +54,7 @@ public class StudentService{
     @DELETE
     @Path("{id}")
     @Transactional
-    public Response deleteStudent(@PathParam("id") int id){
+    public Response deleteStudent(@PathParam("id") Long id){
        service.deleteStudent(id);
       return Response.status(204).build();
     }

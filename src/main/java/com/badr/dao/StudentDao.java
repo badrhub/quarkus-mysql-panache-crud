@@ -12,7 +12,7 @@ import io.quarkus.panache.common.Sort;
 @ApplicationScoped
 public class StudentDao {
     
-    public Student getStudent(int id){
+    public Student getStudent(Long id){
         Student st  = Student.findById(id);
              if(st == null){
                  throw new WebApplicationException("student with id = " + id + " doesn't exist" , 404);
@@ -24,7 +24,7 @@ public class StudentDao {
         return Student.listAll(Sort.by("nom"));
     }
 
-    public void deleteStudent(int id){
+    public void deleteStudent(Long id){
             Student st = Student.findById(id);
             if(st == null){
                 throw new WebApplicationException("student with id = " + id + " doesn't exist" , 404);
@@ -32,7 +32,7 @@ public class StudentDao {
             st.delete();
     }
 
-    public Student updateStudent(int id , Student ne){
+    public Student updateStudent(Long id , Student ne){
         Student st = Student.findById(id);
             if(st == null){
                 throw new WebApplicationException("student with id = " + id + " doesn't exist" , 404);
